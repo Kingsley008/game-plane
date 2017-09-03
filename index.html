@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>打飞机</title>
+    <style>
+        #myCanvas {
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="500">
+
+</canvas><br>
+fps:<input type="range" id="myRange" value="50"><br>
+<div>
+    <label class="gua-conf">玩家速度：
+        <span class="gua-speed"></span>
+        <input type="range" data-value="conf_player.playerSpeed" class ="conf" value="5">
+    </label>
+</div>
+
+<div>
+    <label class="gua-conf">子弹速度：
+        <span class="gua-speed"></span>
+        <input type="range" data-value="conf_player.bulletSpeed" class ="conf" value="5">
+    </label>
+</div>
+
+<div>
+    <label class="gua-conf">云的速度：
+        <span class="gua-speed"></span>
+        <input type="range" data-value="conf_player.cloudSpeed" class ="conf" value="1" max="10" min="-10">
+    </label>
+</div>
+
+</body>
+<!-- gua game 相关文件-->
+<script src="js/game/utils.js"></script>
+<script src="js/game/mouse.js"></script>
+<script src="js/game/guagame.js"></script>
+<script src="js/game/gua_scene.js"></script>
+<script src="js/game/gua_img.js"></script>
+<!-- 场景文件 -->
+<script src="js/stage/main/Cloud.js"></script>
+<script src="js/stage/main/Enemy.js"></script>
+<script src="js/stage/main/Bullet.js"></script>
+<script src="js/stage/main/player.js"></script>
+<script src="js/stage/main/stage.js"></script>
+
+<!-- 结束和标题场景 -->
+<script src="js/stage/title/scence_tittle.js"></script>
+<script src="js/stage/end/scence_end.js"></script>
+<!-- 配置逻辑 -->
+<script src="js/stage/conf/conf.js"></script>
+<script>
+
+
+
+    var _main = function () {
+        var images = {
+            bullet:'imgs/bullet.png',
+            player:'imgs/player.png',
+            en_plane:'imgs/en_plane.png',
+            background:'imgs/background.jpg',
+            cloud:'imgs/cloud.png',
+            boom:'imgs/boom.png'
+        };
+        var game = GuaGame.instance(50,images, function (game) {
+            var s = new Stage(game);
+            game.stage = s;
+        });
+
+        var enableDebugMode = function (enable,game) {
+            if(!enable){
+                return
+            }
+            //暂停
+            window.addEventListener('keydown', function (event) {
+                var k = event.key;
+                if (k === 'p') {
+                    game.paused = !game.paused;
+                } else if ( '1234567'.includes(k)) {
+                  //  blocks = loadLevel(Number(k),game);
+                }
+            }  );
+
+        };
+        enableDebugMode(true,game);
+
+
+    };
+    _main();
+
+</script>
+</html>
