@@ -22,7 +22,8 @@ class GuaScene {
                 return
             }
             if(v.alive === undefined || v.alive){
-               self.game.drawImage(v);
+              // self.game.drawImage(v);
+                v.draw();
             }
         })
     }

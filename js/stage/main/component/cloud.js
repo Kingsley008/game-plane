@@ -1,37 +1,38 @@
-class Enemy {
+class Cloud {
 
     constructor(guaImg) {
         this.img = guaImg;
         this.setup(this.img);
         this.game = guaImg.game;
-
     }
 
-
+    getRandom(low, high) {
+        return Math.floor(Math.random() * (high - low) + low)
+    }
 
     setup(guaImg) {
         var self = this;
         self.texture = guaImg.texture;
-        self.x = getRandom(0, 300 - self.w);
-        self.y = -getRandom(0, 100);
+        self.x = self.getRandom(0, 300);
+        self.y = -self.getRandom(0, 200);
         self.w = guaImg.w;
         self.h = guaImg.h;
-        self.step = getRandom(2, 5);
-        this.alive = true;
+        self.step = 1;
+        this.img.x = self.x;
+        this.img.y = self.y;
     }
-
-
 
     update() {
         this.y += this.step;
         if (this.y > 500 - this.h) {
             this.setup(this.img);
         }
-
+    }
+    draw(){
+        this.game.drawImage(this);
     }
 
-    // draw(){
-    //     this.img.draw();
-    // }
-
+    debug(){
+        this.step = conf_player.cloudSpeed;
+    }
 }

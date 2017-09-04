@@ -17,14 +17,14 @@ fps:<input type="range" id="myRange" value="50"><br>
 <div>
     <label class="gua-conf">玩家速度：
         <span class="gua-speed"></span>
-        <input type="range" data-value="conf_player.playerSpeed" class ="conf" value="5">
+        <input type="range" data-value="conf_player.playerSpeed" class ="conf" value="5" >
     </label>
 </div>
 
 <div>
     <label class="gua-conf">子弹速度：
         <span class="gua-speed"></span>
-        <input type="range" data-value="conf_player.bulletSpeed" class ="conf" value="5">
+        <input type="range" data-value="conf_player.bulletSpeed" class ="conf" value="5" max="10" min="1">
     </label>
 </div>
 
@@ -43,11 +43,12 @@ fps:<input type="range" id="myRange" value="50"><br>
 <script src="js/game/gua_scene.js"></script>
 <script src="js/game/gua_img.js"></script>
 <!-- 场景文件 -->
-<script src="js/stage/main/Cloud.js"></script>
-<script src="js/stage/main/Enemy.js"></script>
-<script src="js/stage/main/Bullet.js"></script>
-<script src="js/stage/main/player.js"></script>
-<script src="js/stage/main/stage.js"></script>
+<script src="js/stage/main/component/cloud.js"></script>
+<script src="js/stage/main/component/enemy.js"></script>
+<script src="js/stage/main/component/bullet.js"></script>
+<script src="js/stage/main/component/player.js"></script>
+<script src="js/stage/main/main_scene.js"></script>
+<script src="js/stage/main/gua_particleSystem.js"></script>
 
 <!-- 结束和标题场景 -->
 <script src="js/stage/title/scence_tittle.js"></script>
@@ -68,7 +69,7 @@ fps:<input type="range" id="myRange" value="50"><br>
             boom:'imgs/boom.png'
         };
         var game = GuaGame.instance(50,images, function (game) {
-            var s = new Stage(game);
+            var s = new SceneMain(game);
             game.stage = s;
         });
 

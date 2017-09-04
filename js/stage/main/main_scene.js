@@ -1,4 +1,4 @@
-class Stage extends GuaScene {
+class SceneMain extends GuaScene {
     constructor(game) {
         super(game);
         // 初始化
@@ -49,7 +49,7 @@ class Stage extends GuaScene {
                         self.game.score++;
                         bullet.alive = false;
                         enemy.alive = false;
-                        self.boom = new GuaImg(self.game, 'boom', enemy.x + enemy.w / 2, enemy.y);
+                        self.boom = new GuaParticleSystem(self.game, enemy.x + enemy.w / 2, enemy.y);
                         self.addElements(self.boom);
                         setTimeout(
                             (function (boom) {

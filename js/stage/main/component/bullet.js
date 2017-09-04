@@ -11,6 +11,7 @@ class Bullet {
         this.y = this.img.y;
         this.w = this.img.w;
         this.h = this.img.h;
+        this.alive = true;
         this.step = 10;
     }
 
@@ -21,9 +22,9 @@ class Bullet {
         this.step = conf_player.bulletSpeed;
     }
 
-    // draw(){
-    //     this.img.draw(this);
-    // }
+    draw(){
+        this.game.drawImage(this);
+    }
 
     collide(obj) {
         // 判断两个矩形相交

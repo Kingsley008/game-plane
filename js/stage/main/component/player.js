@@ -54,6 +54,10 @@ class Player {
         this.y = Math.min(500 - this.h, this.y);
     }
 
+    draw(){
+        this.g.drawImage(this);
+    }
+
     fireBullet() {
 
         if(this.cooldown === 0){

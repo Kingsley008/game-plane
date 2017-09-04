@@ -71,6 +71,7 @@ class GuaGame {
     };
 
     draw() {
+        this.ctx.clearRect(0 , 0, 300, 500);
         this.stage.draw();
     };
 
