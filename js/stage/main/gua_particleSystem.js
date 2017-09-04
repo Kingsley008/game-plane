@@ -44,7 +44,6 @@ class GuaParticleSystem {
             var vy = getRandom(-10, 10);
             p.init(this.x, this.y, vx, vy );
             this.particles.push(p);
-           // this.scene.elements.push(p);
         }
 
         for(var p of this.particles) {

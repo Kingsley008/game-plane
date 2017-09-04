@@ -66,7 +66,6 @@ class SceneMain extends GuaScene {
                         self.game.score++;
                         bullet.alive = false;
                         enemy.alive = false;
-                        log(self);
                         self.boomObj(enemy);
                     }
                 })
