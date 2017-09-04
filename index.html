@@ -47,6 +47,7 @@ fps:<input type="range" id="myRange" value="50"><br>
 <script src="js/stage/main/component/enemy.js"></script>
 <script src="js/stage/main/component/bullet.js"></script>
 <script src="js/stage/main/component/player.js"></script>
+<script src="js/stage/main/component/label.js"></script>
 <script src="js/stage/main/main_scene.js"></script>
 <script src="js/stage/main/gua_particleSystem.js"></script>
 
@@ -56,9 +57,6 @@ fps:<input type="range" id="myRange" value="50"><br>
 <!-- 配置逻辑 -->
 <script src="js/stage/conf/conf.js"></script>
 <script>
-
-
-
     var _main = function () {
         var images = {
             bullet:'imgs/bullet.png',
@@ -69,7 +67,7 @@ fps:<input type="range" id="myRange" value="50"><br>
             boom:'imgs/boom.png'
         };
         var game = GuaGame.instance(50,images, function (game) {
-            var s = new SceneMain(game);
+            var s = new ScenceTitle(game);
             game.stage = s;
         });
 
@@ -82,8 +80,6 @@ fps:<input type="range" id="myRange" value="50"><br>
                 var k = event.key;
                 if (k === 'p') {
                     game.paused = !game.paused;
-                } else if ( '1234567'.includes(k)) {
-                  //  blocks = loadLevel(Number(k),game);
                 }
             }  );
 

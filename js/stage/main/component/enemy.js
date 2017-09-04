@@ -32,4 +32,14 @@ class Enemy {
         this.game.drawImage(this);
     }
 
+    collide(obj) {
+        // 判断两个矩形相交
+        var self = this;
+        if (aInb(obj.x, self.x, self.x + self.w) || aInb(self.x, obj.x, obj.x + obj.w)) {
+            if (aInb(obj.y, self.y, self.y + self.h) || aInb(self.y, obj.y, obj.y + obj.h)) {
+                return true
+            }
+        }
+        return false;
+    };
 }
