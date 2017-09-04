@@ -5,11 +5,13 @@ class ScenceTitle extends GuaScene {
         this.setupInputs();
         this.addElements(this.label);
         this.game = game;
+
     }
 
     setupInputs() {
         var self = this;
         self.game.registerAction('k', function () {
+            self.game.score  = 0;
             self.game.replaceStage(new SceneMain(self.game));
         });
     }

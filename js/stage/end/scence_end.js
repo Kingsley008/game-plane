@@ -6,6 +6,7 @@ class ScenceEnd extends GuaScene {
         this.label2 = new Label(game,'按K 重新开始游戏', 10, 350);
         this.addElements(this.label1);
         this.addElements(this.label2);
+
     }
 
     // setupInputs() {

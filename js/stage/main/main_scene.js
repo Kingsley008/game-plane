@@ -13,7 +13,7 @@ class SceneMain extends GuaScene {
         self.numberOfCould = 2;
         self.bg = new GuaImg(self.game, 'background', 0, 0);
         self.cloud = new GuaImg(self.game, 'cloud', 20, 100);
-        self.label = new Label(self.game, "Score:"+ self.game.score, 10, 490);
+        self.label = new Score(self.game, "Score:" ,10, 490);
 
 
         self.addElements(self.bg);
@@ -51,7 +51,6 @@ class SceneMain extends GuaScene {
         self.enemies.forEach(function (enemy) {
             if (enemy.alive) {
                 //碰撞player
-
                 if (enemy.collide(self.player)) {
                     self.player.alive = false;
                     self.boomObj(self.player);
@@ -64,6 +63,7 @@ class SceneMain extends GuaScene {
                 self.player.bullets.forEach(function (bullet, index) {
                     if (bullet.collide(enemy)) {
                         self.game.score++;
+
                         bullet.alive = false;
                         enemy.alive = false;
                         self.boomObj(enemy);
